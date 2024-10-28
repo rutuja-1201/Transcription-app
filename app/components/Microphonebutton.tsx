@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
 
 const MicrophoneButton: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -57,18 +57,22 @@ const MicrophoneButton: React.FC = () => {
   };
 
   return (
-    <div className="microphone-button-container">
-      <button
-        className={`microphone-button ${isRecording ? 'recording' : ''}`}
-        onClick={isRecording ? stopRecording : startRecording}
-      >
-        {isRecording ? 'Stop Recording' : 'Start Recording'}
-      </button>
-      <div className="transcription-container">
-        <h3 className="transcription-header">Transcription:</h3>
-        <p className="transcription-text">
-          {transcription || 'Transcription will appear here...'}
-        </p>
+    <div className="container mt-5">
+      <div className="text-center">
+        <button
+          className={`btn btn-${isRecording ? 'danger' : 'primary'} btn-lg`}
+          onClick={isRecording ? stopRecording : startRecording}
+        >
+          {isRecording ? 'Stop Recording' : 'Start Recording'}
+        </button>
+      </div>
+      <div className="mt-4">
+        <h3 className="text-primary">Transcription:</h3>
+        <div className="alert alert-info">
+          <p className="mb-0">
+            {transcription || 'Transcription will appear here...'}
+          </p>
+        </div>
       </div>
     </div>
   );

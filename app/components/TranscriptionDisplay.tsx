@@ -7,7 +7,7 @@ interface TranscriptionDisplayProps {
 
 const TranscriptionDisplay: React.FC<TranscriptionDisplayProps> = ({ transcription }) => (
   <div className="transcription-box">
-    <p>{transcription || "Start speaking to see transcription here..."}</p>
+    <p>{transcription}</p>
   </div>
 );
 
